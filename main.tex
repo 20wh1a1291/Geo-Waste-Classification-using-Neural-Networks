@@ -1,0 +1,1131 @@
+\documentclass[12pt, English]{article}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, linkcolor=blue]{hyperref}
+\usepackage[spanish]{babel}
+\selectlanguage{spanish}
+\usepackage[utf8]{inputenc}
+\usepackage[svgnames]{xcolor}
+\renewcommand{\baselinestretch}{1.5}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\usepackage{sectsty}
+\usepackage{fancyhdr}
+\fancyfoot[C]{}
+\renewcommand{\headrulewidth}{4pt}
+\renewcommand{\footrulewidth}{4pt}
+\sectionfont{\fontsize{17.28}{17.28}\selectfont}
+\usepackage{mathptmx}
+\usepackage[font=small,labelfont=bf]{caption}
+\renewcommand{\figurename}{Figure}
+\usepackage[figurename=Figure]{caption}
+\usepackage{ragged2e}
+\usepackage{multirow}
+\addtolength{\topmargin}{-57pt}
+\addtolength{\oddsidemargin}{92pt}
+\addtolength{\footskip}{50pt}
+\justifying
+
+\usepackage{listings}
+\usepackage{afterpage}
+\pagestyle{plain}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+%\lstset{language=R,
+% basicstyle=\small\ttfamily,
+% stringstyle=\color{DarkGreen},
+% otherkeywords={0,1,2,3,4,5,6,7,8,9},
+% morekeywords={TRUE,FALSE},
+% deletekeywords={data,frame,length,as,character},
+% keywordstyle=\color{blue},
+% commentstyle=\color{DarkGreen},
+%}
+
+\lstset{frame=tb,
+language=R,
+aboveskip=3mm,
+belowskip=3mm,
+showstringspaces=false,
+columns=flexible,
+numbers=none,
+keywordstyle=\color{blue},
+numberstyle=\tiny\color{gray},
+commentstyle=\color{dkgreen},
+stringstyle=\color{mauve},
+breaklines=true,
+breakatwhitespace=true,
+tabsize=3
+}
+
+\usepackage{here}
+
+\textheight=21cm
+\textwidth=17cm
+%\topmargin=-1cm
+\oddsidemargin=0cm
+\parindent=0mm
+\pagestyle{plain}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% La siguiente instrucciÃ³n pone el curso automÃ¡ticamente%
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{color}
+\usepackage{ragged2e}
+
+\captionsetup[table]{name=Table}
+\global\let\date\relax
+\newcounter{unomenos}
+\setcounter{unomenos}{\number\year}
+\addtocounter{unomenos}{-1}
+\stepcounter{unomenos}
+
+\begin{document}
+
+\begin{titlepage}
+
+\begin{center}
+\vspace*{-1in}
+
+%==========================================================================
+%==========================================================================
+\begin{Large}
+\vspace*{0.1in}
+\textbf{A Project Report\\on}
+\end{Large}
+\vspace*{0.0in}
+\textbf{\Large \\ GEO WASTE CLASSIFICATION USING}
+\textbf{\Large \\ DEEP NEURAL NETWORKS}
+
+%==========================================================================
+\begin{large}
+\textbf{{Submitted in partial fulfillment of the requirements \\
+for the award of degree of}}\\
+\end{large}
+%==========================================================================
+%==========================================================================
+\begin{large}
+{\textbf{BACHELOR OF TECHNOLOGY \\ in\\ Information Technology\\by}}\\
+\end{large}
+%===========================================================================
+
+\textit{\textbf{\large D. Tejaswini (20WH1A1291)}} \\
+\textit{\textbf{\large B. Akshitha (20WH1A12A0)}} \\
+\textit{\textbf{\large Ch. Dharani (20WH1A12B3)}} \\
+
+%==========================================================================
+\begin{large}
+\textit{\textbf{Under the esteemed guidance of}}\\
+\end{large}
+%==========================================================================
+\textbf{\large \textit {Ms. M. SudhaRani }}\\
+
+\textbf{\large \textit {Assistant Professor}}\\
+%==========================================================================
+\begin{center}
+\includegraphics[width=1.6cm]{vishnulogo.jpg}
+\end{center}
+%==========================================================================
+\begin{large}
+\textbf{Department of Information Technology}\\
+\end{large}
+%==========================================================================
+\begin{Large}
+\textbf{BVRIT HYDERABAD College of Engineering for Women}\\
+\end{Large}
+\begin{normalsize}
+\textbf{ Rajiv Gandhi Nagar, Nizampet Road, Bachupally, Hyderabad – 500090}
+
+%===========================================================================
+\textbf{(Affiliated to Jawaharlal Nehru Technological University, Hyderabad)}\\
+
+\textbf{(NAAC ‘A’ Grade \& NBA Accredited- ECE, EEE, CSE \& IT)}\\
+
+\end{normalsize}
+\begin{large}
+\vspace{0.01in}
+\textbf{ June, 2024}\\
+\end{large}
+\end{center}
+\end{titlepage}
+%===========================================================================
+
+\newcommand{\CC}{C\nolinebreak\hspace{-.05em}\raisebox{.4ex}{\tiny\bf +}\nolinebreak\hspace{-
+.10em}\raisebox{.4ex}{\tiny\bf +}}
+\def\CC{{C\nolinebreak[4]\hspace{-.05em}\raisebox{.4ex}{\tiny\bf ++}}}
+%===========================DECLARATION=====================================
+\begin{titlepage}
+\begin{center}
+\textbf{\LARGE DECLARATION}\\
+\end{center}
+\vspace*{0.2in}
+
+We hereby declare that the work presented in this project entitled {\textbf{“Geo Waste Classification Using Deep Neural Networks”}} submitted towards completion of in IV year II
+sem of B.Tech IT at “BVRIT HYDERABAD College of Engineering for Women”, Hyderabad is an authentic record of our original work carried out under the esteemed guidance of { Ms. M. SudhaRani , Assistant
+Professor}, Department of Information Technology.
+
+\raggedleft
+\vspace*{0.5in}
+
+\textcolor{black}{D.Tejaswini (20WH1A1291)}\\
+\raggedleft
+\vspace*{0.3in}
+\textcolor{black}{B.Akshitha (20WH1A12A0)}\\
+\raggedleft
+\vspace*{0.3in}
+\textcolor{black}{Ch.Dharani (20WH1A12B3)}\\
+\raggedleft
+
+\end{titlepage}
+%===========================================================================
+
+%===========================CERTIFICATE=====================================
+\begin{titlepage}
+\vspace*{-0.5in}
+\begin{center}
+\includegraphics[width=2.8cm]{vishnulogo.jpg}
+\end{center}
+%===========================================================================
+\begin{center}
+\begin{large}
+\textbf{BVRIT HYDERABAD\\ College of Engineering for Women}\\
+\end{large}
+\begin{footnotesize}
+\textbf{ Rajiv Gandhi Nagar, Nizampet Road, Bachupally, Hyderabad – 500090}\\
+\vspace*{0.1in}
+\textbf{(Affiliated to Jawaharlal Nehru Technological University Hyderabad)}\\
+\textbf{(NAAC ‘A’ Grade \& NBA Accredited- ECE, EEE, CSE \& IT)}\\
+\end{footnotesize}
+\end{center}
+%===========================================================================
+\begin{center}
+\textbf{\large CERTIFICATE}\\
+\end{center}
+
+\begin{normalsize}
+
+This is to certify that the Project report on {\textbf{“ Geo Waste Classification Using Deep Neural Networks”}} is a bonafide work carried out by {\textbf{D. Tejaswini (20WH1A1291), B. Akshitha(20WH1A12A0), Ch. Dharani(20WH1A12B3)}} in the
+partial fulfillment for the award of B.Tech degree in \textbf{Information Technology, BVRIT
+HYDERABAD College of Engineering for Women, Bachupally, Hyderabad} affiliated to Jawaharlal
+Nehru Technological University, Hyderabad under my guidance and supervision.
+\newline
+\tab The results embodied in the project work have not been submitted to any other university or
+institute for the award of any degree or diploma.
+\end{normalsize}
+
+
+\vspace*{0.6in}
+\noindent
+{\begin{normalsize}
+{\textbf{Internal Guide}}
+\end{normalsize}
+}
+\hfill
+{
+\begin{normalsize}
+\textbf{ Head of the Department}
+\end{normalsize}
+}\\
+%===========================================================================
+\noindent
+{\begin{normalsize}
+{\textbf{Ms. M. SudhaRani }}
+\end{normalsize}
+}
+\hfill
+{
+\begin{normalsize}
+\textbf{Dr. Aruna Rao S L}
+\end{normalsize}
+}\\
+%===========================================================================
+\noindent
+{\begin{normalsize}
+{\textbf{Assistant Professor}}
+\end{normalsize}
+}
+\hspace{9.4cm}
+{
+\begin{normalsize}
+\textbf{Professor \& HoD }
+\end{normalsize}
+}\\
+%===========================================================================
+\noindent
+{\begin{normalsize}
+{\textbf{Department of IT}}
+\end{normalsize}
+}
+\hspace{9.8cm}
+{
+\begin{normalsize}
+{\textbf{Department of IT}}
+\end{normalsize}
+}\\
+\\
+\noindent
+{\begin{center}
+{\textbf {External Examiner}}
+\end{center}
+
+}
+
+\end{titlepage}
+%===========================================================================
+%===========================ACKNOWLEDGEMENT=================================
+\begin{titlepage}
+\begin{center}
+\textbf{\normalsize \underline{ACKNOWLEDGEMENT}}\\
+\end{center}
+\vspace*{0.2in}
+\begin{normalsize}
+We would like to express our profound gratitude and thanks to \textbf{Dr. K. V. N. Sunitha, Principal,
+BVRIT HYDERABAD College of Engineering for Women} for providing the working facilities in the
+college.\\
+\newline
+Our sincere thanks and gratitude to \textbf{Dr. Aruna Rao S L, Professor \& Head, Department of IT,
+BVRIT HYDERABAD College of Engineering for Women} for all the timely support, constant guidance
+and valuable suggestions during the period of our project.\\
+\newline
+We are extremely thankful and indebted to our internal guide, \textbf{Ms. M. SudhaRani, Assistant
+Professor, Department of IT, BVRIT HYDERABAD College of Engineering for Women} for her constant
+guidance, encouragement and moral support throughout the project.\\
+\newline
+Finally, we would also like to thank our Project Coordinators \textbf{Dr. J. Kavitha, Associate Professor and Dr. Mukhtar Ahmad Sofi, Associate Professor}, all the faculty and staff of Department of IT who helped us directly or indirectly, parents and friends for their cooperation in completing the project work.
+\end{normalsize}
+
+
+\raggedleft
+\vspace*{0.5in}
+\begin{normalsize}
+{ D. Tejaswini (20WH1A1291)}\\ \\
+\vspace*{0.25in}
+\raggedleft
+
+{ B. Akshitha (20WH1A12A0)}\\ \\
+\vspace*{0.25in}
+\raggedleft
+{ Ch. Dharani (20WH1A12B3)}\\\\
+\vspace*{0.25in}
+\raggedleft
+\end{normalsize}
+\end{titlepage}
+%===========================ABSTRACT========================================
+\begin{titlepage}
+
+\begin{center}
+\textbf{\Large ABSTRACT}\\
+\end{center}
+
+\begin{normalsize}
+The increasing global waste generation has elevated waste management to critical concern. It is
+observed that globally solid waste has surged, hitting 2.01 billion tons annually in 2016, with
+predictions of 3.40 billion tons by 2050. Such vast amounts of waste can lead to severe
+environmental degradation, loss of biodiversity and generation of green house gases which have
+a long-lasting effect on planet. Existing methods, relying on manual sorting and implementation
+of IOT. All of the reviewed surveys focus on object detection and a few on waste detection and classification but none of them surveyed the available dataset and the deep learning models for multiple object detection on the waste detection and classification . This project proposes deep learning models, specifically convolutional neural
+networks (CNNs) and Mask regional convolutional neural networks (MRCNNs), to address these challenges and
+enhance waste management. The proposed method involves training deep learning models on a
+comprehensive dataset of waste materials, enabling automated and accurate sorting based on
+visual and textual characteristics. This project's significance lies in its potential to revolutionize
+waste management by automating classification and recycling processes, reducing human labor,
+enhancing recycling efficiency, and minimizing waste sent to landfills, thereby reducing
+environmental pollution and conserving resources. Therefore, it provides the way for smarter and
+more sustainable waste management practices, contributing to a cleaner and healthier planet.
+\\
+\\
+    \textit{\large \bfseries Keywords}: Convoultuional neural network (CNN),Support vector machine (SVM), MobileNetv2, YOLO Architecture, Mask regional convoulutional neural network (MRCNN)
+\newline
+\end{normalsize}
+\begin{normalsize}
+\begin{center}
+\vspace*{\fill}
+
+\textbf{V}
+\end{center}
+\end{normalsize}
+\end{titlepage}
+%=====================LIST-OF-FIGURES======================================
+\begin{titlepage}
+
+\begin{center}
+\vspace{-100cm}
+\textbf{\large LIST OF FIGURES}
+\end{center}
+
+\begin{center}
+\begin{normalsize}
+\begin{tabular}{|c|l|c|}
+\hline
+\normalsize\textbf{Figure No.} & \normalsize\textbf{Figure Name} &\normalsize\textbf{Page
+No.} \\
+\hline
+3.1 & Architecture Overview & 13\\ \hline
+3.1.1 & Graphical Representation of Proposed System & 15\\ \hline
+4.1.1 & SVM & 19\\ \hline
+4.1.2 & CNN & 20\\ \hline
+4.1.5 & MRCNN & 24\\ \hline
+5.2.1 & Installing Tensorflow and Clone Models Repository & 28\\ \hline
+5.2.2 & Importing Libraries & 29\\ \hline
+5.2.3 & Loading Dataset and Preprocessing the Model & 29\\ \hline
+5.2.4 & Image Preprocessing Function & 30\\ \hline
+5.2.5 & Selecting and Loading Image for Detection & 30\\ \hline
+5.2.6 & Performing Object Detection and Visualizing Results& 30\\ \hline
+5.2.7 & Selecting and Loading Image for Detection & 31\\ \hline
+5.2.8 & Recycling Method & 31\\ \hline
+6.1.1 & Input and Detected Image for Plastic Waste & 32\\ \hline
+6.1.2 & Recommended Recycling Method & 32\\ \hline
+6.1.3 & Input and Detected Image for Cloth Waste & 33\\ \hline
+6.1.4 & Recommended Recycling Method & 33\\ \hline
+6.1.5 & Input and Detected Image for Cardboard Waste & 34\\ \hline
+6.1.6 & Recommended Recycling Method & 34\\ \hline
+6.2.1 & GUI Webpage & 35\\ \hline
+6.2.2 & GUI Result for Plastic Waste & 35\\ \hline
+6.2.3 & GUI Result for Cloth Waste & 36\\ \hline
+6.2.4 & GUI Result for Cardboard waste & 36\\ \hline
+\end{tabular}
+\begin{normalsize}
+\begin{center}
+\vspace*{\fill}
+\textbf{VI}
+\end{center}
+\end{normalsize}
+\end{normalsize}
+\end{titlepage}
+
+%=====================LIST-OF-ABBREVATIONS======================================
+\begin{titlepage}
+
+\begin{center}
+\vspace{-100cm}
+\textbf{\large LIST OF ABBREVATIONS}
+\end{center}
+
+\begin{center}
+\begin{normalsize}
+\begin{tabular}{|c|l|c|}
+
+\hline
+\normalsize\textbf{Abbrevation} &\normalsize\textbf{Meaning} \\
+\hline
+SVM & Support Vector Machine\\
+\hline
+CNN & Convolutional Neural Network\\
+\hline
+RCNN & Region-Based Convolutional Network\\
+\hline
+MRCNN & Mask-Regional Convolutional Neural Network\\
+\hline
+YOLO & You Only Look Once\\
+\hline
+FPN & Feature Pyramid Network\\
+\hline
+RPN & Regional Proposed Network\\
+\hline
+ROI & Region Of Interest\\
+\hline
+\end{tabular}
+\begin{normalsize}
+\begin{center}
+\vspace*{\fill}
+
+\textbf{VII}
+\end{center}
+\end{normalsize}
+\end{normalsize}
+\end{titlepage}
+%==========================================================================
+\newpage
+%=====================CONTENTS=============================================
+\begin{titlepage}
+\begin{center}
+\textbf{\Large CONTENTS}
+\end{center}
+\vspace*{0.20in}
+\noindent
+{\begin{normalsize}
+\textbf{\tab TOPIC}
+\end{normalsize}
+}
+\hfill
+{
+\begin{normalsize}
+\textbf{PAGE NO.}
+\end{normalsize}
+}\\
+%===========================================================================
+%==========================================================================
+\noindent
+{\begin{large}
+\textbf{ \tab Abstract}
+\end{large}
+}
+
+\hfill
+{
+\begin{normalsize}
+\textbf{V}
+\end{normalsize}
+}\\
+%==========================================================================
+\noindent
+{\begin{large}
+\textbf{ \tab List of Figures}
+\end{large}
+}
+\hfill
+{
+\begin{normalsize}
+\textbf{VI}
+\end{normalsize}
+}\\
+%==========================================================================
+\noindent
+{\begin{large}
+\textbf{ \tab List of Abbrevations}
+\end{large}
+}
+\hfill
+{
+\begin{normalsize}
+\textbf{VII}
+\end{normalsize}
+}\\
+%=============================================================================
+
+\noindent
+{\begin{large}
+\textbf{\tab 1. Introduction}
+\end{large}
+}
+\hfill
+{
+\begin{large}
+\textbf{1}
+\end{large}
+}
+
+\noindent
+{\begin{large}
+\text{ \tab\tab 1.1 Objective }
+\end{large}
+}
+\hfill
+{
+\begin{large}
+\textbf{3}
+\end{large}
+}
+
+\noindent
+{\begin{large}
+\text{ \tab\tab 1.2 Problem Definition }
+\end{large}
+}
+\hfill
+{
+\begin{large}
+\textbf{3}
+\end{large}
+}
+
+\noindent
+{\begin{large}
+\text{ \tab\tab 1.3 Motivation }
+\end{large}
+}
+\hfill
+{
+\begin{large}
+\textbf{4}
+\end{large}
+}
+\\
+\noindent
+{\begin{large}
+\textbf{\tab 2. Literature Survey}
+\end{large}
+}
+\hfill
+{
+\begin{large}
+\textbf{5}
+\end{large}
+}
+\\
+\noindent
+{\begin{large}
+
+\textbf{\tab 3. System Design }
+\end{large}
+}
+\hfill
+{
+\begin{large}
+\textbf{13}
+\end{large}
+}
+
+\noindent
+{\begin{large}
+\text{ \tab\tab 3.1 Architecture }
+\end{large}
+}
+\hfill
+{
+\begin{large}
+\textbf{13}
+\end{large}
+}
+
+\noindent
+{\begin{large}
+\text{ \tab\tab 3.2 Technologies }
+\end{large}
+}
+\hfill
+{
+\begin{large}
+\textbf{16}
+\end{large}
+}
+\\
+\\
+\noindent
+{\begin{large}
+\textbf{\tab 4. Methodology}
+\end{large}
+}
+\hfill
+{
+\begin{large}
+\textbf{19}
+\end{large}
+}
+
+\noindent
+{\begin{large}
+\text{ \tab\tab 4.1 Algorithms Used }
+\end{large}
+}
+\hfill
+{
+\begin{large}
+\textbf{19}
+\end{large}
+}
+
+\noindent
+{\begin{large}
+\text{ \tab\tab 4.2 Modules }
+\end{large}
+}
+\hfill
+{
+\begin{large}
+\textbf{26}
+\end{large}
+}
+\\
+\\
+\noindent
+{\begin{large}
+\textbf{\tab 5. Implementation}
+\end{large}
+}
+\hfill
+{
+\begin{large}
+\textbf{28}
+\end{large}
+}
+
+\noindent
+{\begin{large}
+\text{ \tab\tab 5.1 DataSet }
+\end{large}
+}
+\hfill
+{
+\begin{large}
+\textbf{28}
+\end{large}
+}
+
+\noindent
+{\begin{large}
+\text{ \tab\tab 5.2 Code }
+\end{large}
+}
+\hfill
+{
+\begin{large}
+\textbf{28}
+\end{large}
+}
+\\
+\\
+\noindent
+{\begin{large}
+\textbf{\tab 6. Results and Discussions}
+\end{large}
+}
+\hfill
+{
+\begin{large}
+\textbf{32}
+\end{large}
+}
+\\
+
+\noindent
+{\begin{large}
+
+\textbf{\tab 7. Conclusion and Future Scope}
+\end{large}
+}
+\hfill
+{
+\begin{large}
+\textbf{ 37}
+\end{large}
+}
+\\
+\\
+\noindent
+{\begin{large}
+\textbf{\tab \tab References}
+\end{large}
+}
+\hfill
+{
+\begin{large}
+\textbf{38}
+\end{large}
+}
+\end{titlepage}
+%==========================================================================
+
+\newpage
+
+\pagestyle{fancy}
+\rhead{\footnotesize Geo Waste Classification Using Deep Neural Networks }
+\fancyfoot[L]{\footnotesize Department of Information Technology}
+\fancyfoot[R]{\footnotesize\thepage}
+
+\begin{center}
+\section{\Large INTRODUCTION}
+\end{center}
+\begin{normalsize}
+
+The development of geo waste classification using deep neural networks is imperative in addressing the pressing need for effective waste management strategies
+to combat environmental degradation and promote sustainability. The exponential growth in population and urbanization has led to an unprecedented increase in
+waste generation, necessitating innovative solutions to mitigate the environmental
+impact of improper disposal. Traditional waste management methods often fall
+short in accurately categorizing and handling diverse waste types, leading to inefficiencies in recycling processes and environmental pollution. In this context, the
+implementation of deep neural networks for geo waste classification emerges as
+a transformative approach. The need arises from the urgency to enhance the accuracy and efficiency of waste classification, particularly on a geographical scale,
+where distinct waste patterns and compositions may exist. By leveraging the capabilities of deep learning models, the technology can autonomously recognize
+and categorize waste materials, facilitating optimal resource recovery and recycling. The importance of this endeavor lies in its potential to significantly reduce the environmental footprint of waste disposal, promote resource conservation through improved recycling rates, and create healthier ecosystems. Additionally, geo waste classification using deep neural networks holds promise in fostering community well-being by minimizing the presence of hazardous materials
+and contributing to the creation of safer living environments. As a technological
+innovation, it not only showcases the positive impact of artificial intelligence on
+real-world challenges but also provides educational and advocacy opportunities,
+raising awareness about responsible waste management practices. This pioneering
+initiative aligns with global sustainability goals outlined in agendas like the United
+Nations Sustainable Development Goals, emphasizing responsible consumption,
+climate action, and the preservation of life on land and below water. This work integrates computer vision, deep learning, and
+IoT for automated waste segregation , it also includes data
+enriched techniques for accuracy, and hardware components
+like Arduino are employed for physical waste segregation .
+The enhance waste management through deep learning,
+machine learning, and IoT technologies. The methodology
+combines CNN for waste classification and IoT for real-time
+data monitoring to accurately segregate biodegradable, non-biodegradable, hazardous waste, to improve waste management efficiency and promote sustainable disposal practices.
+It employs quantitative methods like bibliometric analysis
+and qualitative approaches such as content analysis to examine trends and research themes. Data is collected from
+the Scopus database using specific search strings, and text
+mining techniques are used to extract insights from selected
+articles proposes use of Machine Learning and Deep
+Learning algorithms to automate waste classification. Our
+models, including CNN and SVM, achieved high accuracy
+rates. It explores waste classification and identification
+using transfer learning and lightweight neural networks. It
+builds on machine learning advancements, compares traditional algorithms with deep learning models, and addresses
+challenges like overfitting. The methodology involves training
+MobileNetV2 through transfer learning, combining it with
+SVM for classification. This introduces a Multilayer
+Hybrid System (MHS) for waste classification, combining
+a Convolutional Neural Network for image analysis with
+sensor data for numerical information, hardware consists high resolution camera, bridge sensor, and inductor for data collection and MHS simulates human sensory and intellectual
+processes, using the CNN as ”eyes” for image analysis, sensors
+as ”ears” and ”nose” for numerical data, and multilayer perceptrons as the ”brain” for waste classification. This Presents
+an Automatic Garbage Detection System which is based Deep
+Learning and Narrowband Internet of Things. It introduces an
+improved YOLOv2 model for Garbage detection, recognition,
+utilizing target box dimension clustering and classification
+network pre-training. The system manages monitoring frontends through Narrowband IoT with a background server. By
+optimizing the YOLOv2 model and leveraging IoT communication, the system achieves cost reduction, enhanced detection
+accuracy, and improved performance compared to traditional
+systems.This proposes an automated system to classify waste
+as biodegradable or non-biodegradable using deep learning
+algorithms. By leveraging fram eworks like Caffe, the system
+can analyze waste images in real-time, reducing health hazards
+for workers and improving segregation efficiency. In summary,
+the development of geo waste classification using deep neural networks is not just
+a response to a crucial environmental need but a pathway towards a more sustain1
+able and resilient future, where technological advancements play a pivotal role in shaping responsible waste management practices. Accurate waste classification data supports evidence-based policymaking, aligns with global sustainability goals, and positions you as an innovator in waste management, contributing to scalable and efficient solutions for a more sustainable future. 
+\end{normalsize}
+\\\
+\begin{large}
+\textbf{1.1. Objective}
+\end{large}
+\begin{normalsize}
+    
+The objectives of geo waste classification using deep learning are centered on
+revolutionizing waste management practices. This entails achieving superior accuracy and efficiency compared to traditional methods through the utilization of
+deep neural networks, thereby automating the classification process and reducing
+reliance on manual sorting. The integration of spatial and temporal features in
+geospatial data aims to provide a comprehensive understanding of waste distribution patterns and adapt to dynamic trends across diverse geographic regions.
+The exploration of multi-modal data fusion facilitates a holistic view of the waste
+landscape by integrating various data sources. Scalability and adaptability are
+prioritized through the design of a scalable deep learning architecture capable of
+handling diverse datasets and waste compositions. Transfer learning techniques
+are implemented to accelerate training and foster model generalization, ensuring
+effectiveness in different environmental contexts. The user-friendly interface and
+2
+real-time monitoring capabilities contribute to actionable insights for decisionmakers, while the system’s ability to assess environmental impact aids targeted
+interventions for pollution prevention and resource conservation. The overarching goal is to leverage deep learning for sustainable and effective environmental
+conservation efforts in waste management.\\
+\end{normalsize}
+
+\begin{large}
+\textbf{1.2. Problem Definition}
+\end{large}
+\begin{normalsize}
+    
+Existing waste classification methods, relying on manual sorting and conventional techniques, face significant drawbacks in modern waste management. Manual sorting is labor-intensive, time-consuming, and error-prone, leading to inaccuracies in categorization. Traditional methods lack scalability and struggle to adapt to dynamic waste patterns across diverse regions. These systems fail to comprehensively analyze spatial and temporal features in geospatial data, limiting real-time insights and hindering automation. The challenges intensify with large datasets and diverse waste compositions, resulting in suboptimal decisionmaking. The problem statement for geo waste classification using deep learning stems from these limitations, aiming to revolutionize waste management by
+leveraging deep neural networks. This advanced approach integrates geospatial data, addresses manual sorting issues, enables real-time monitoring, and provides a scalable solution for accurate waste classification, contributing to more sustainable environmental conservation efforts.Geo waste classification using deep learning is to revolutionize waste management practices by automating and enhancing the categorization of waste based on its composition, and environmental impact. Leveraging advanced deep neural networks, the goal is to overcome the limitations of manual sorting and conventional methods and providing recycling methods of major components in waste. This approach seeks to enable real-time monitoring, adaptability to dynamic waste patterns, and comprehensive analysis of spatial and temporal features in geospatial data. The ultimate objective is to provide a scalable, efficient, and accurate solution for waste classification, contributing to more sustainable and effective environmental conservation efforts on both local and global scales.
+
+\end{normalsize}
+
+\begin{large}
+\textbf{1.3. Motivation}
+\end{large}
+\begin{normalsize}
+    
+The development and implementation of geo waste classification through deep
+neural networks offers a transformative opportunity to tackle environmental issues
+and foster sustainability. Utilizing cutting-edge technology for waste management
+on a geographic scale positions you at the forefront of positive change. The motivation encompasses several crucial aspects, including reducing environmental impact by accurately categorizing waste, enabling efficient recycling, and promoting
+ecosystem health. Proper waste classification contributes to resource conservation, enhancing recycling rates and supporting a more sustainable, circular economy. Addressing waste management challenges at the geographic level positively
+impacts community health by minimizing hazardous materials and creating safer
+living environments. The project not only showcases the potential of technology
+for societal good but also provides educational opportunities, raising awareness
+about responsible waste management. Accurate waste classification data supports
+evidence-based policymaking, aligns with global sustainability goals, and positions you as an innovator in waste management, contributing to scalable and efficient solutions for a more sustainable future. In summary, the motivation stems
+from the positive environmental impact, community well-being, and the chance
+to pioneer technological innovation in sustainable waste management practices.
+
+\end{normalsize}
+
+\newpage
+\begin{center}
+\section{ \Large LITERATURE SURVEY}
+\end{center}
+The paper [1] ”A Survey on Waste Detection and Classification Using Deep Learning” reveals a growing interest in the application of machine learning and deep learning algorithms in waste management. The studies reviewed provide insights into the classification technology of domestic waste, deep learning-based
+object detection in challenging environments, and salient object detection in the context of deep learning. Additionally, the survey highlights the potential of deep learning technology to contribute to sustainable development and environmental conservation. Overall, the literature survey underscores the importance of continued research and development in this field to address the challenges of waste
+management and promote a cleaner, healthier environment.\\
+
+The paper [2] on deep learning applications in solid waste management provides a comprehensive analysis of the advancements and challenges in utilizing deep learning models for various aspects of waste management. By examining 40 research studies published between 2019 and 2021, the survey underscores the significance of deep learning techniques, particularly deep convolutional neural networks, in tasks such as waste identification, classification, and prediction of waste generation. While the studies demonstrate promising results in improving the effectiveness and efficiency of waste management processes, the survey also identifies critical research gaps. These include the absence of standardized benchmark datasets for performance evaluation, the reliance on self-constructed datasets, and the need for more transparent reporting and reproducibility in research methodologies. To address these gaps and further enhance the application of deep learning in solid waste management, future research directions may involve the development of annotated benchmark datasets for different waste categories, the exploration of data augmentation techniques to enhance model performance, and the integration of diverse data sources such as remote sensing, geographic information systems, and IoT technologies to create a comprehensive data management platform for SWM monitoring systems. By addressing these challenges and leveraging the potential of deep learning, researchers can contribute to the advancement of smart and sustainable solid waste management practices, particularly in the context of developing countries where effective waste management solutions are crucial for environmental conservation and public health.\\
+
+Paper [3] Highlights a significant trend towards the adoption of cutting-edge methodologies such as deep learning and machine learning to address the evolving challenges in waste segregation and disposal. Recent studies have emphasized the development of novel algorithms that can effectively classify various types of waste, thereby enhancing waste management efficiency and promoting recycling initiatives. Researchers are actively exploring the fusion of deep-learning models with hardware solutions to create intelligent waste segregation systems capable of delivering improved performance and accuracy. Furthermore, the integration of Internet of Things (IoT) technologies in waste management frameworks is gaining traction as a promising strategy to streamline operations, optimize waste segregation processes, and implement sustainable waste disposal practices. These technological advancements aim to not only contribute to the creation of cleaner and healthier environments but also to reduce the overall environmental impact associated with traditional waste management approaches.\\
+
+The paper [4]  emphasizes the global problem of uncontrolled garbage disposal, leading to health risks and environmental impact. Various technologies, such as Radio Frequency Identification (RFID) and Sensor Networks (SN), have been explored to optimize waste management. Previous studies focused on identifying, tracking, and analyzing discarded garbage using RFID technology. Some
+proposed methods aimed to estimate household waste volume based on image analysis and associate each bin with the house’s address using RFID tags. However, the text highlights that none of these studies specifically addressed assisting the population in the correct disposal of garbage. It then introduces works that aimed to help consumers properly discard waste, such as using Ontology Web
+Language (OWL) for smart waste sorting and classifying garbage into recycling categories using support vector machines (SVM) and convolutional neural networks (CNN). The proposed project extends these works by testing different neural network techniques for waste classification.\\
+The paper [5] Automated Waste Management System integrates computer vision, deep learning, and IoT technologies to revolutionize waste segregation processes [T3]. By leveraging Convolutional Neural Networks (CNN), the system classifies waste based on shape, size, and color, enabling efficient segregation into Organic and Recyclable categories [T2]. This approach eliminates manual sorting, reducing health risks for workers and enhancing the speed and cost-effectiveness of waste segregation. Previous studies have explored the use of technologies like RFID for waste minimization and classification, highlighting the importance of reducing waste impact on the environment and human health. Data enrichment techniques, such as capturing images in various lighting conditions and positions, enhance the accuracy of the classification model [T4]. Additionally, research has focused on the environmental and economic benefits of resource recovery from global waste management systems, emphasizing the significance of recycling and sustainable waste practices. The latest trends in waste classification emphasize the utilization of machine learning algorithms, particularly CNN and neural networks, for efficient and accurate waste classification tasks.\\
+
+The paper [6] titled Illegal Trash Thrower Detection Based on HOGSVM for a Real-Time Monitoring System” offers a comprehensive overview of intelligent surveillance systems (ISS) and related methodologies for various applications, including the detection of illegal trash littering persons. It discusses the limitations of current systems, such as issues with background subtraction, shadow removal, and the detection of multiple objects. The survey also highlights the use of techniques such as Gaussian mixture model (GMM), histogram of oriented gradients (HOG), and support vector machine (SVM) algorithms in surveillance-based systems. Furthermore, the proposed methodology for illegal trash throwing person detection is based on GMM, HOG, and SVM algorithms, with a focus on foreground detection using GMM, feature extraction using HOG, and classification using SVM. The system overview includes stages such as region of interest selection, background modeling, foreground detection, and various image processing techniques including shadow removal, background subtraction, morphological operations, and labeling and filtering operations. The survey also references several relevant works in the field, including studies on sterile zone monitoring,
+unattended object identification, smoke and flame detection, human detection, and background subtraction techniques using GMM. Additionally, it highlights the use of SVM for human detection and the preparation of effective datasets for detecting and segmenting trash from images. Overall, the literature survey provides a comprehensive overview of existing ISS and related methodologies, highlighting their limitations and the proposed approach for illegal trash throwing person detection, while referencing relevant works in the field.\\
+
+The paper ”Deep learning applications in solid waste management” [7] reflects a progressive shift towards automated waste management in response to the inefficiencies of manual waste sorting, this literature survey explores the proposed Multi-model Cascaded Convolutional Neural Network (MCCNN) as an innovative solution for domestic waste image detection and classification. The MCCNN amalgamates three cutting-edge subnetworks (DSSD, YOLOv4, and
+Faster-RCNN) to enhance detection precision. To address false-positive predictions, a cascaded classification model is incorporated. The survey highlights the creation of the Large-Scale Waste Image Dataset (LSWID), comprising 30,000 multi-labeled images across 52 categories, as the largest dataset in domestic waste
+image classification. The study further delves into the practical application of the proposed technology through the implementation of a smart trash can (STC) in a Shanghai community, showcasing its potential for scalable and real-world impact.Experimental results demonstrate a state-of the-art performance, with an average
+10percent improvement in detection precision. This literature survey positions the MCCNN system as a transformative advancement in waste management, emphasizing its potential for global adoption and implications for sustainable practices.\\
+
+The paper [8] titled ”Waste Management Using Machine Learning and Deep
+Learning Algorithms ” encompasses a comprehensive review of related works in the domain of waste management using machine learning and deep learning algorithms. The survey includes references to various studies that have employed different approaches, such as Support Vector Machine (SVM), Random Forest Classifier, Gaussian Naive Bayes, Multilayer Perceptron, Internet of Things (IoT) technologies, Raspberry Pi, Computer Vision implementation, and transfer learning
+with lightweight neural networks. These studies have explored diverse methodologies, including the use of IoT devices for waste segregation, the integration of machine learning models with IoT devices and sensors, and the implementation of computer vision techniques for waste classification. Additionally, the survey
+highlights the application of transfer learning to address overfitting issues and the use of correlation coefficients for feature analysis. The literature survey provides a rich overview of the existing research landscape and the various technological
+approaches employed in the field of waste management using machine learning and deep learning algorithms\\
+
+In [9] paper, the authors addresses the critical issue of waste recognition and classification using machine learning and deep learning techniques within the field of computer vision. The study highlights challenges such as incomplete garbage datasets and poor performance of complex models on smart devices, leading to suboptimal results in existing garbage classification methods. The authors
+propose an innovative waste classification and identification approach based on transfer learning and a lightweight neural network. By adapting and enhancing the MobileNetV2 model for feature extraction and integrating support vector machines (SVM) for classification, the method achieves a remarkable 98.4 percent
+accuracy on a dataset of 2527 labeled garbage items. The research demonstrates the effectiveness of the proposed method in improving classification accuracy, addressing challenges related to limited data, and overcoming overfitting issues in small datasets commonly encountered in deep learning. The study contributes valuable insights and methodologies to the evolving field of garbage recognition,
+emphasizing the importance of artificial intelligence in waste management.\\
+
+The paper [10] provides valuable insights into the field of waste management and Internet-of-Things (IoT) technology. It discusses the potential of IoT in improving waste management systems , Additionally, it references works such as ”Waste Management in IoT-Enabled Services Smart Cities” and ”Garbage monitoring system using IoT”, which further explore the application of IoT in waste management. The survey also highlights the significance of machine
+learning, monitoring systems, and sensors in the context of waste management.Furthermore, it emphasizes the growing global concern regarding waste management due to the increasing population and the associated challenges, as evidenced by the impact of typhoon Ondoy in the Philippines . This literature survey provides a comprehensive overview of the current state of waste management and the
+potential for IoT technology to address these challenges.\\
+
+The paper [11] ”RecycleNet: Intelligent Waste Sorting Using Deep Neural Networks” explores the application of deep learning techniques to waste management and recycling, emphasizing the need for intelligent systems over human labor in dump-yards for more efficient and safe recycling. The study evaluates various deep convolutional neural network architectures, including ResNet50, MobileNet,
+Inception-ResNetV2, DenseNet121, and Xception, experimenting with both training from scratch and transfer learning approaches. The authors introduce a novel architecture called RecycleNet, specifically optimized for the classification of recyclable objects. RecycleNet achieves an 81 percent test accuracy on a dataset
+of six common recyclable materials. The research compares different optimization methodologies, such as Adam and Adadelta, and explores the impact of data augmentation on model performance. The article also addresses the real-time implementation potential of the models, crucial for applications like smart bin systems. The study concludes that deep learning, particularly with the proposed RecycleNet model, demonstrates feasibility in waste sorting, showcasing promising results for ecological awareness and sustainable waste management. Future work is suggested to refine RecycleNet further and explore advancements in convolutional neural networks for deformations and adversarial examples.\\
+
+The paper [12] ”Multilayer hybrid deep-learning method for waste classification and recycling” explained a multilayer hybrid deep-learning system (MHS) to automatically sort waste disposed of by individuals in the urban public area. This system deploys a high-resolution camera to capture waste image and sensors to detect other useful feature information. The MHS uses a CNN-based algorithm to
+extract image features and a multilayer perceptrons (MLP) method to consolidate image features and other feature information to classify wastes as recyclable or the others. The MHS is trained and validated against the manually labelled items, achieving overall classification accuracy higher than 90 percent under two different testing scenarios, which significantly outperforms a reference CNN-based
+method relying on image-only inputs\\
+
+The paper [13] on waste classification and recycling technologies reveals a growing interest in utilizing advanced methods such as deep learning for efficient waste management. Traditional waste sorting methods are being augmented or replaced by automated systems that incorporate sensors, cameras, and machine learning algorithms to classify waste items accurately. Research studies, such as the one discussed here, highlight the potential of multilayer hybrid systems that combine convolutional neural networks (CNN), multilayer perceptrons (MLP), and sensor data to achieve high levels of accuracy in waste classification. These innovative approaches not only improve the efficiency of waste sorting processes but also contribute to promoting recycling practices and sustainable waste management in urban areas. The integration of technology in waste management systems is seen as a promising solution to address the challenges associated with increasing waste generation and limited recycling rates. By leveraging the capabilities of deep learning and sensor technologies, researchers aim to develop intelligent systems that can enhance waste sorting accuracy, reduce contamination, and optimize recycling efforts for a more sustainable future.\\
+
+Efficient waste management paper and recycling practices [14] are crucial for mitigating environmental impact and promoting sustainable development. Researchers have explored advanced technologies to improve waste classification and sorting processes. Sinha et al. [Sinha and Couderc 2012] introduced a method based on Ontology Web Language to enhance the sorting of recyclable materials, emphasizing the need for accurate waste identification. Yang M. et al. [Yang and Thung] proposed a classification system using SVM and CNN for efficient garbage sorting, achieving significant accuracy rates. Awe et al. [Awe et al. 2017] further advanced waste categorization through the implementation of Faster R-CNN, showcasing enhanced waste classification capabilities. Building on these advancements, our research integrates a variety of neural network techniques, including SVM, VGG-16, and Random Forest, to classify garbage waste images into distinct recycling categories with improved precision and efficiency. Moreover, the integration of technologies such as RFID and Sensor Networks [Glouche and Couderc 2013] has shown promise in optimizing waste management systems, offering innovative solutions for waste tracking and collection. By harnessing these technological innovations, our study aims to revolutionize waste sorting processes, reduce environmental impact, and pave the way for sustainable waste management practices that benefit both society and the environment. \\
+
+The paper encompasses a wide range of studies and resources relevant to waste management, deep learning, and agricultural technology. It includes works such as ”An Adaptive Approach of Tamil Character Recognition Using Deep Learning with Big Data” by R. Jagadeesh Kanan and S. Subramanian, ”Automatic Detection and Classification of buried objects in GPR images using Genetic algorithms and Support vector machines” by Edoardo Pasolli, Farid Melgani, Massimo Donelli, Redha Attoui, Merieete De vos, and ”An introduction to Genetic Algorithms” by Melanie Mitchell. Furthermore, it references government documents such as ”e-Waste in India” by the Rajya Sabha Secretariat and ”The Gazette of India” regarding ”The prohibition of employment as Manual Scavengers and their rehabilitation Act” . These diverse sources provide a comprehensive overview of the existing research and policies in the field, offering valuable insights for the development of the proposed automatic waste segregation system. \\
+\\
+
+\newpage
+\begin{center}
+\section{ \Large SYSTEM DESIGN}
+\end{center}
+\textbf{3.1 Architecture}\\
+The proposed system, named ”Geo Waste Classification
+Using Neural Networks” integrates various algorithms and
+models for detecting waste and identifies the efficient model
+for detecting waste and provides recycling methods for the
+detected components in waste. Mask R-CNN (Mask Region based Convolutional Neural Network) is a sophisticated deep
+learning model designed for the task of instance segmentation. Building upon the Faster R-CNN framework, Mask RCNN introduces an additional branch dedicated to predicting segmentation masks alongside the existing components for object detection and bounding box regression. This allows the model not only to accurately identify and locate objects within an image but also to provide pixel-level segmentation, outlining the precise boundaries of each detected object. Mask R-CNN’s capability for detailed instance segmentation made it a powerful tool in applications of computer vision, such as
+image segmentation, object recognition, and scene understanding, offering high accuracy in delineating and understanding
+complex visual scenes.\\
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=10cm, height=8.3cm]{archioverview.png}
+\end{center}
+\begin{center}
+\renewcommand{\thefigure}{3.1}
+\caption{\footnotesize Architecture Overview }
+\end{center}
+\end{figure}\\
+The architecture overview depicts a smart waste detection system that leverages a Mask R-CNN model, a type of deep learning algorithm. First, a collection of waste images undergoes preprocessing to prepare them for analysis. The Mask R-CNN model is then trained on this data, enabling it to identify waste objects within images. After evaluation to ensure accuracy, the system can process new images, pinpointing waste items. Based on the detected waste type, the system recommends the appropriate recycling method, potentially displayed through a user-friendly interface. This technology has the potential to significantly improve recycling efforts by automating waste identification and promoting proper disposal practices.\\
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=11cm, height=9cm]{archi.png}
+\end{center}
+\begin{center}
+\renewcommand{\thefigure}{3.1.1}
+\caption{\footnotesize  Graphical Representation of Proposed system}
+\end{center}
+\end{figure}\\
+The system starts with data collection and preprocessing. Workers gather images containing various types of waste, like plastic bottles, metal cans, or paper products.  These images are then formatted for the machine learning model, which involves resizing them or adjusting color levels.The core of the system is a Mask R-CNN model, a type of deep learning algorithm adapt at object detection and segmentation. This model is trained on the preprocessed data. During training, the model analyzes the images, learning to recognize features that distinguish between different waste types and their backgrounds.Once trained, the model can be used to analyze new images. As the image enters the system, the Mask R-CNN model identifies and outlines the waste objects within the image. It then classifies the waste based on the features it recognizes.  For instance, it might classify an image containing a plastic soda bottle as “plastic”. Finally, based on the classification, the system recommends a recycling method. If the image contained a plastic soda bottle, the system might recommend recycling it in a plastic bin.
+This technology has the potential to improve recycling efforts by automating waste identification and recommending appropriate disposal methods.\\
+The image illustrates the process of using a Multi-Region Convolutional Neural Network (MR-CNN) model for object detection and classification, specifically to identify recyclable materials. In the top left corner, the "input image" section displays a faint outline of a plastic bottle. Directly below, the "filtered image" section shows a high-contrast black and white version of the input image, enhancing the object's visibility. Adjacent to the "filtered image" is the "MR-CNN Model" box, indicating the application of the deep learning model for object analysis. Beneath this, the "predicted image" section presents a black and white outline of the plastic bottle, similar to the filtered image, signifying the model's detection output. Further below, a row of text labeled "Identifying class" is followed by four rectangles, each representing different materials—plastic, metal, paper, and glass—with corresponding icons. This classification aids in determining the material type. At the bottom, text reads "Recommends recycling method," indicating the model's functionality in suggesting appropriate recycling methods based on the identified material. This setup demonstrates the practical application of machine learning in environmental sustainability by accurately classifying materials for recycling.\\
+\newpage
+\textbf{3.2 Technologies}\\
+\textbf{3.2.1 Deep Learning}\\
+Deep learning (also known as deep structured learning or hierarchical learning) is
+part of a broader family of machine learning methods based on learning data representations, as
+opposed to task-specific algorithms. Learning can be supervised,
+semi-supervised or unsupervised. Deep learning architectures such as deep neural
+networks, deep belief networks and recurrent neural networks have been applied to
+fields including computer vision, speech recognition, natural language processing, audio recognition,
+social network filtering, machine translation, bioinformatics and drug
+design where they have produced results comparable to and in some cases superior to
+human experts. Deep learning models are vaguely inspired by information processing
+and communication patterns in biological nervous systems yet have various differences
+from the structural and functional properties of biological brains, which make them
+incompatible with neuroscience evidences.\\
+
+\textbf{3.2.2 Tensorflow}\\
+TensorFlow is an end-to-end open-source platform for machine learning. It has a comprehensive,
+flexible ecosystem of tools, libraries, and community resources that lets researchers push the
+state-of-the-art in ML, and developers easily build and deploy ML-powered applications.
+TensorFlow was originally developed by researchers and engineers working on the Google
+Brain team within Google’s Machine Intelligence Research organization to conduct machine learning
+and deep neural networks research. The system is general enough to be applicable in a wide
+variety of other domains, as well.
+\\
+\\
+\textbf{3.2.3 Pandas}\\
+Pandas is a powerful open-source library in Python used for data manipulation and analysis. It provides easy-to-use data structures, such as DataFrame and Series, which allow for efficient handling of structured data. Pandas is widely used for tasks like cleaning data, transforming data into different forms, and performing statistical analysis. Its functionality includes tools for reading and writing data in various formats (CSV, Excel, SQL databases), handling missing or duplicate data, reshaping data, and performing group operations. Pandas is an essential tool for anyone working with data in Python due to its versatility and efficiency in handling large datasets.
+\\
+\\
+\textbf{3.2.4 Keras }\\
+Keras is an open-source high-level Neural Network library, which is written in Python is capable
+enough to run on Theano, TensorFlow, or CNTK. It was developed by one of the Google engineers,
+Francois Chollet. It is made user-friendly, extensible, and modular for facilitating faster
+experimentation with deep neural networks. It not only supports Convolutional Networks and
+Recurrent Networks
+individually but also their combination and LSTM which we were using.
+Keras is a high-level neural network API written in Python that facilitates the building and training of deep learning models, designed with a focus on enabling fast experimentation and ease of use. It operates as a user-friendly, modular interface that allows for the quick assembly and configuration of neural network layers, activation functions, optimizers, and loss functions. Keras is capable of running on top of established deep learning frameworks such as TensorFlow, Microsoft Cognitive Toolkit (CNTK), and Theano, providing flexibility and scalability. It supports both CPU and GPU computations, offers a wide range of tools for data preprocessing, and includes various utilities for model deployment. With its comprehensive suite of pre-built layers and models, including support for transfer learning with pretrained models, Keras is widely used in both research and industry, benefiting from robust community support and extensive documentation within the TensorFlow ecosystem.
+give me information about one paragraph\\
+
+\\
+\textbf{3.2.5 Numpy}\\
+NumPy (Numerical Python) is a core library for scientific computing in Python, offering support for large, multi-dimensional arrays and matrices along with a collection of mathematical functions to perform array-based operations efficiently. It is widely used for numerical simulations, data analysis, machine learning, and statistical analysis. Matplotlib is a comprehensive library for creating static, animated, and interactive visualizations in Python, excelling in 2D plotting with extensive customization options. It integrates seamlessly with NumPy and Pandas, making it essential for data visualization in scientific research, exploratory data analysis, and creating publication-quality plots. Together, NumPy and Matplotlib form a powerful toolkit for data manipulation and visualization in Python.\\
+\\
+\textbf{3.2.6 Matplotlib}\\
+Matplotlib is a comprehensive library in Python designed for creating static, animated, and interactive visualizations, making it an essential tool for data visualization. It excels in 2D plotting, enabling the creation of a wide variety of plots such as line graphs, bar charts, histograms, and scatter plots. Matplotlib offers extensive customization options, allowing for precise control over plot appearance, which is ideal for generating publication-quality figures. It supports integration with GUI toolkits like Tkinter, wxPython, Qt, and GTK for interactive plots, and works seamlessly with other libraries like NumPy and Pandas, making it indispensable for visualizing data in scientific research, exploratory data analysis, and reporting.
+\newpage
+\begin{center}
+\section{ \Large METHODOLOGY}
+\end{center}
+\subsection{Algorithms Used}
+%\textbf\large{4.1 Algorithms Used}\\
+%\begin{large}
+%\textbf{4.1 Algorithms Used }\\
+%\end{large}
+\textbf{4.1.1 SVM}\\
+Support Vector Machine (SVM) is a powerful supervised machine learning
+algorithm used for classification and regression tasks. Its primary goal is to find the optimal hyperplane that best separates classes in a high-dimensional space. In classification, SVM aims to create a decision boundary (hyperplane) that maximizes the margin, which is the distance between the closest data points of different classes known as support vectors. These support vectors are the critical data
+points that influence the position and orientation of the hyperplane. SVM can handle linear and nonlinear data by using different kernel functions (like polynomial, radial basis function, etc.) that map the data into higher-dimensional spaces where classes are more separable. For regression tasks, SVM employs a similar principle by finding a hyperplane that best fits the data within a certain margin of tolerance. It aims to minimize errors while maximizing the margin, thus finding the optimal fit for the given data. SVM is effective in handling high-dimensional data, works well with a clear margin of separation between classes, and is robust against over fitting when the right parameters are chosen. However, it can be sensitive to noise
+and might become computationally expensive with large data sets.
+\\
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=8cm, height=4.2cm]{svm.jpeg}
+\end{center}
+\begin{center}
+\renewcommand{\thefigure}{4.1}
+\caption{\footnotesize SVM }
+\end{center}
+\end{figure}
+
+\newpage
+\begin{large}
+\textbf{4.1.2 CNN }\\
+\end{large}
+\tab
+\text Convolutional Neural Networks (CNNs) are a class of deep neural networks primarily used for analyzing visual imagery in applications such as image recognition, object detection, and image classification. CNNs are designed to automatically and adaptively learn spatial hierarchies of features from the input data. They
+consist of multiple layers including convolutional layers, pooling layers, and fully connected layers.
+key components of cnn are :\\
+• Input Layer\\
+• Conventional layers (Conv2D)\\
+• Batch normalization layers (Batch Normalization)\\
+• Max Pooling\\
+• Flatten Layer\\
+• Output Layer\\
+\\
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=10cm, height=7.5cm]{cnn.png}
+\end{center}
+\begin{center}
+\renewcommand{\thefigure}{4.2}
+\caption{\footnotesize CNN }
+\end{center}
+\end{figure}\\
+\textbf{Input layer: } This layer takes in an image as input. In your case, the input shape is (224, 224, 3), which means the image is 224 pixels wide, 224 pixels tall, and has 3 channels (one for each color: red, green, and blue). Convolutional layers (Conv2D): These layers extract features from the image by convolving it with a small filter. The first convolutional layer in your model has 32 filters, each of which is 3x3 pixels in size. This means that the layer will extract 32 different features from the image. The second convolutional layer has 64 filters, and so on.\\
+\\
+\textbf{Batch normalization layers (BatchNormalization): } These layers help to stabilize the training process by normalizing the activations of the previous layer.\\
+\\
+\textbf{Pooling layers (MaxPooling2D and AveragePooling2D): } These layers reduce the size of the feature maps by taking the maximum or average 
+value of a small region of the input. This helps to reduce the number of parameters in the network and prevent overfitting.\\
+\\
+\textbf{Flatten layer: } This layer converts the feature maps into a one-dimensional vector.\\
+\\
+\textbf{Fully-connected layers (Dense): } These layers learn complex relationships between the features extracted by the convolutional layers. The first fully-connected layer in your model has 2056 neurons, the second layer has 512 neurons, and the third layer has 256 neurons.\\
+\\
+\textbf{Output layer: } This layer outputs the predictions of the network. In your case, the output layer has two neurons, one for each class in your classification task\\
+\\
+\begin{large}
+\textbf{4.1.3 MobileNet }\\
+\end{large}
+\text MobileNet is a family of neural network architectures designed for efficient on-device image classification and computer vision tasks, particularly optimized for mobile and embedded devices with limited computational resources. Key features include the use of depthwise separable convolutions to reduce computational cost, compact model sizes for faster inference on mobile devices, and
+variants such as MobileNetV1, V2, and V3, each improving accuracy, efficiency, and speed. MobileNet models find widespread applications in tasks like image classification, object detection, and semantic segmentation, making them suitable for real-time applications on smartphones and IoT devices. Supported by popular deep learning frameworks like TensorFlow and PyTorch, MobileNet provides
+flexibility for a diverse range of developers, with the choice of a specific variant based on factors such as computational resources, accuracy requirements, and latency constraints.\\
+\\
+
+\begin{large}
+\textbf{4.1.4 YOLO }\\
+\end{large}
+\text YOLO (You Only Look Once) is a real-time object detection system that predicts bounding boxes and class probabilities for multiple objects in an image. Introduced by Joseph Redmon and Santosh Divvala, YOLO divides the image into a grid, applying detection at each cell to predict bounding box coordinates, object
+confidence, and class probabilities. Its one-stage approach achieves high accuracy and real-time speeds, different from traditional two-stage detectors. YOLOv2 and YOLOv3 improve accuracy, speed, and small object handling. Utilizing a neural network backbone, often based on Darknet, and techniques like anchor boxes for localization, YOLO is widely used in applications such as surveillance, autonomous vehicles, and robotics for efficient real-time object detection.\\
+\\
+\textbf {Implementation of YOLO Architecture}\\
+Implementing the YOLO (You Only Look Once) architecture involves several steps, and it typically requires a deep learning framework like TensorFlow or PyTorch. Below, I provide a high-level overview of the steps involved in implementing YOLO using TensorFlow.\\
+Set up Environment: Installing the required libraries, which includes TensorFlow, NumPy, and any other dependencies.\\
+\textbf{Dataset Preparation: } Collecting a dataset for training. Annotated images with bounding box coordinates and class labels are necessary.\\
+\textbf{Model Architecture: } Defining the YOLO model architecture. The architecture typically involves a convolutional neural network (CNN) backbone, detection head, and output layer for bounding box predictions and class probabilities.\\
+\textbf{Loss Function: } Implementing a custom loss function that combines localization loss (for bounding box coordinates) and classification loss. YOLO uses a combination of mean squared error and binary cross-entropy.\\
+\textbf{Training: } Training the YOLO model on the prepared dataset using stochastic gradient descent or an optimizer of choice. Transfer learning with pre-trained weights on a large dataset like ImageNet is common for improved performance.\\
+\textbf{Post Preprocessing: } Implementing post-processing steps to filter out low-confidence detections and apply non-maximum suppression to remove redundant bounding boxes.\\
+\textbf{Evaluation: } Evaluating the performance of the YOLO model on a separate validation set to assess accuracy, precision, recall, and other relevant metric\\
+\\
+
+\begin{large}
+\textbf{4.1.5 MRCNN }\\
+\end{large}
+\text Mask R-CNN (Mask Region-based Convolutional Neural Network) is a sophisticated deep learning model designed for the task of instance segmentation. Building upon the Faster R-CNN framework, Mask R-CNN introduces an additional branch dedicated to predicting segmentation masks alongside the existing components for object detection and bounding box regression. This allows the model not only to accurately identify and locate objects within an image but also to provide pixel-level segmentation, outlining the precise boundaries of each detected object. Mask R-CNN’s capability for detailed instance segmentation makes it a powerful tool in computer vision applications, such as image segmentation, object recognition, and scene understanding, offering high accuracy in delineating and understanding complex visual scenes\\
+\\
+MRCNN involes layers like:\\
+• Backbone Layer\\
+• Feature Pyramid Network Layer (FPN)\\
+• Regional Proposed Network Layer (RPN)\\
+• ROI Layer\\
+• Bounding Box Head\\
+• Loss Layer\\
+• Mask Head \\
+\\
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=14cm, height=7.5cm]{mrcnnalgo.png}
+\end{center}
+\begin{center}
+\renewcommand{\thefigure}{4.2}
+\caption{\footnotesize MRCNN }
+\end{center}
+\end{figure}\\
+\textbf{Backbone Layer: }Typically a ResNet or ResNeXt network, which is used to extract feature maps from the input image. The backbone processes the image through multiple convolutional layers, producing rich feature representations.\\
+\\
+\textbf{Feature Pyramid Network Layer (FPN): }Enhances the backbone by creating a pyramid of feature maps at different scales, which helps in detecting objects of various sizes more effectively. The FPN combines high-resolution and low-resolution feature maps to capture both fine and coarse features.\\
+\\
+\textbf{Regional Proposed Network Layer (RPN): } Generates region proposals from the feature maps produced by the FPN. It outputs a set of candidate object bounding boxes with associated objectness scores, indicating the likelihood of each proposal containing an object.\\
+\\
+\textbf{ROI Layer: }A crucial improvement over the RoI Pooling layer used in Faster R-CNN. RoI Align precisely extracts small feature maps for each region proposal by avoiding quantization errors, which helps in maintaining spatial alignment and improves mask prediction accuracy.\\
+\\
+\textbf{Bounding Box Head: }Takes the aligned RoI features and processes them through a series of fully connected layers to predict class labels and refine bounding box coordinates for each region proposal.\\
+\\
+\textbf{Loss Layer: }A small Fully Convolutional Network (FCN) applied to the aligned RoI features to generate a binary mask for each RoI. This branch is parallel to the bounding box head and outputs a segmentation mask at the pixel level, providing instance-level segmentation.\\
+\\
+\textbf{Mask Head: }Different loss functions are used to train the network. The RPN loss includes classification loss (object vs. not object) and bounding box regression loss. The detection loss includes classification loss and bounding box regression loss for the proposals, while the mask loss is the binary cross-entropy loss applied to the predicted masks.\\
+\\
+
+\newpage
+\subsection{Modules}
+%\textbf{4.2 Modules}\\
+\textbf{ 4.2.1 Object Detection}\\
+Object detection involves a comprehensive process that not only identifies and localizes objects within an image but also provides detailed segmentation masks for each detected object. Mask R-CNN builds on the Faster R-CNN framework by adding a branch specifically designed for predicting segmentation masks, which allows for pixel-level precision in object delineation. This process starts with a convolutional neural network (CNN) backbone, such as ResNet or ResNeXt, which is used to extract rich feature maps from the input image. These feature maps are then processed by a Region Proposal Network (RPN) to generate candidate regions of interest (RoIs) that likely contain objects. The RoIs are fed into the RoIAlign layer, which ensures that the features are precisely aligned with the original image, maintaining spatial accuracy and improving the overall quality of the detection and segmentation tasks. Within each proposed region, the model performs classification to determine the object class and bounding box regression to refine the coordinates of the bounding boxes, ensuring accurate localization of the objects. Simultaneously, the mask branch generates a binary mask for each class within the RoIs, predicting the shape and extent of the object at a pixel level. This combination of classification, bounding box regression, and segmentation makes Mask R-CNN particularly powerful for applications that require detailed understanding and separation of individual objects, such as autonomous driving, medical imaging, and video surveillance. The detailed segmentation masks provided by Mask R-CNN enhance its utility in scenarios where precise object boundaries are critical for further analysis or processing.\\
+\\
+\textbf{4.2.2 Object clasification}\\
+Object classification in Mask R-CNN (MRCNN) involves identifying and categorizing objects within an image while also providing detailed segmentation masks. Mask R-CNN is an extension of the Faster R-CNN model, with an added branch for predicting segmentation masks for each object. The process begins with a convolutional neural network (CNN) backbone, such as ResNet, which extracts feature maps from the input image. These feature maps are processed by a Region Proposal Network (RPN) to generate candidate object regions. Each region of interest (RoI) proposed by the RPN is then refined through the RoIAlign layer, which ensures precise spatial alignment of the features. The refined features are passed through two branches: the classification and bounding box regression branch, and the mask prediction branch. The classification branch assigns a class label to each RoI indicates classification. while the bounding box regression branch adjusts the coordinates of the bounding boxes for better localization. The mask prediction branch generates a binary mask for each class within the RoI, providing pixel-level segmentation of the object. This dual capability of classification and segmentation makes Mask R-CNN particularly useful for tasks requiring both high-level categorization and detailed understanding of object shapes and boundaries. Applications of object classification in Mask R-CNN include autonomous driving, where precise object recognition is crucial for navigation, and medical imaging, where detailed classification and segmentation of anatomical structures are necessary for accurate diagnosis and treatment planning.\\
+\\
+\textbf{4.2.3 Recommending Recycling Methods}\\
+Recommending recycling methods for waste detected in a geo waste classification system using deep neural networks involves a sophisticated process that integrates advanced image processing and machine learning techniques. The system employs deep neural networks, such as Mask R-CNN, to accurately detect and classify various types of waste in geographic areas, utilizing convolutional neural network (CNN) backbones like ResNet for feature extraction and Region Proposal Networks (RPNs) for proposing candidate regions of interest. These regions are refined through RoIAlign layers to ensure precise alignment of features, facilitating accurate classification and segmentation of waste objects. Subsequently, a recommendation module leverages the classification results to suggest suitable recycling methods for each waste type based on a pre-defined recycling database. The system outputs comprehensive information, including waste types, locations, and recommended recycling methods, providing valuable insights for waste management authorities to optimize recycling efforts.
+\newpage
+\begin{center}
+\section{ \Large IMPLEMENTATION }
+\end{center}\\
+
+\subsection{Data Set}\\
+The TrashNet dataset is created by Feyza Kec¸efe, comprises
+a total of 2,519 images meticulously categorized into six
+distinct classes : cardboard (403 images), glass (501 images),
+metal (410 images), paper (594 images), plastic (482 images),
+and trash (129 images). This dataset serves as a pivotal resource for advancing research and development in the realm of trash detection. With its diverse collection of images in JPEG format, researchers can train and evaluate machine learning models and algorithms aimed at automatically detecting and classifying trash items within images. Licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License, TrashNet facilitates non-commercial research endeavors, enabling exploration of various avenues, from benchmarking detection algorithms to investigating image processing techniques and integrating models into practical applications for waste management and environmental conditions.  TrashNet serves as a valuable resource for developing machine learning models and algorithms to automate waste sorting, recycling, and environmental monitoring processes.
+monitoring\\
+
+\subsection{Code}
+\begin{normalsize}
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=14cm, height=4cm]{installations.jpeg}
+\end{center}
+\begin{center}
+\renewcommand{\thefigure}{5.2.1}
+\caption{\footnotesize Installing TensorFlow and Clone Models Repository}
+\end{center}
+\end{figure}
+\end{normalsize}
+
+
+\end{document}
